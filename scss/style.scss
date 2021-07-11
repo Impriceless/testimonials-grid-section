@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+//COLORS
+$mviolet: hsl(263, 55%, 52%);
+$dblue: hsl(217, 19%, 35%);
+$bblue: hsl(219, 29%, 14%);
+$white: hsl(0, 0%, 100%);
+
+$lgray: hsl(0, 0%, 81%);
+$lblue: hsl(210, 46%, 95%);
+
+
+//Moderate violet: hsl(263, 55%, 52%) Very dark grayish blue: hsl(217, 19%, 35%) Very dark blackish blue: hsl(219, 29%, 14%) White: hsl(0, 0%, 100%)
+
+// Light gray: hsl(0, 0%, 81%) Light grayish blue: hsl(210, 46%, 95%)
+
+
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 1.3rem;
+    line-height: 1.3;
+    background: $lblue;
+    color: $white;
+}
+
+.container {
+    max-width: 114rem;
+    margin: 3rem auto;
+    display: grid;
+    grid-gap: 3rem 2.6rem;
+    grid-template-areas: "daniel daniel jonathan kira"
+                         "janeatte patrick patrick kira";
+                         
+    grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+
+    @media (max-width: 1200px) {
+        padding: 3rem;
+    }
+
+    @media (max-width: 1100px) {
+        padding: 1.8rem;
+        grid-template-areas: "daniel" "jonathan"
+        "janeatte" "patrick" "kira";
+        grid-template-columns: 1fr;
+    }
+}
+
+.card {
+    padding: 3.1rem;
+    display: flex;
+    gap: 2rem;
+    flex-direction: column;
+    border-radius: 10px;
+    box-shadow: .5rem 1rem 3rem rgba($color: #000000, $alpha: 0.1);
+
+    &__top {
+        font-size: 1.2rem;
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+    &__name {
+        margin-bottom: .3rem;
+    }
+    &__about {
+        color: $lgray;
+    }
+
+    &__mid {
+        font-size: 2.1rem;
+        line-height: 1.2;
+        font-weight: 600;
+    }
+
+    &__bottom {
+        color: $lgray;
+        line-height: 1.6;
+        opacity: .85;
+    }
+    &__img {
+        height: 3rem;
+        width: 3rem;
+        border-radius: 50%;
+        
+        &--1 {
+            border: 2px solid hsl(263, 55%, 82%);
+        }
+        &--2 {
+            border: 2px solid $dblue;
+        }
+        &--4 {
+            border: 2px solid $mviolet;
+        }
+    }
+
+    &--1 {
+        background-color: $mviolet;
+        grid-area: daniel;
+        z-index: 1;
+        position: relative;
+
+        &::before {
+            content: "";
+            position: absolute;
+            background-image: url("../images/bg-pattern-quotation.svg");
+            width: 100%;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-size: fit;
+            background-position: right 6rem top;
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    }
+    &--2 {
+        background-color: $dblue;
+        grid-area: jonathan;
+    }
+    &--3 {
+        background-color: $white;
+        grid-area: janeatte;
+    }
+    &--4 {
+        background-color: $bblue;
+        grid-area: patrick;
+    }
+    &--5 {
+        background-color: $white;
+        grid-area: kira;
+    }
+}
+.card .color__dark {
+    color: $dblue;
+}
