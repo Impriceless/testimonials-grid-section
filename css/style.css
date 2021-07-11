@@ -20,7 +20,7 @@ body {
 
 .container {
   max-width: 114rem;
-  margin: 3rem auto;
+  margin: 7rem auto;
   display: grid;
   grid-gap: 3rem 2.6rem;
   grid-template-areas: "daniel daniel jonathan kira" "janeatte patrick patrick kira";
